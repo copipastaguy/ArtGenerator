@@ -31,6 +31,14 @@ const buildSetup = () => {
   fs.mkdirSync(`${buildDir}/images`);
 };
 
+const signImage = (_sig) => {
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 30pt Verdana";
+  ctx.textBaseline = "top";
+  ctx.textAlign = "left";
+  ctx.fillText(_sig, 40, 40);
+};
+
 const getRarityWeight = (_str) => {
   let nameWithoutExtension = _str.slice(0, -4);
   var nameWithoutWeight = Number(
@@ -82,8 +90,8 @@ const layersSetup = (layersOrder) => {
 
 const saveImage = (_editionCount) => {
   fs.writeFileSync(
-    `${buildDir}/images/NameYourNFT #${_editionCount}.png`, // Wanna change name of your NFTs?
-    canvas.toBuffer("image/png") // Delete NameYourNFT # in order to have jsut the number be the name
+    `${buildDir}/images/${_editionCount}.png`,
+    canvas.toBuffer("image/png") 
   );
 };
 
@@ -102,13 +110,13 @@ const addMetadata = (_dna, _edition) => {
   let dateTime = Date.now();
   let tempMetadata = {
     dna: sha1(_dna.join("")),
-    name: `#${_edition}`,
+    name: `PixelatedCorgi #${_edition}`,
     description: description,
     image: `${baseUri}/${_edition}.png`,
     edition: _edition,
     date: dateTime,
     attributes: attributesList,
-    compiler: "HashLips Art Engine",
+    compiler: "Corgi Generator",
   };
   metadataList.push(tempMetadata);
   attributesList = [];
@@ -184,7 +192,7 @@ const writeMetaData = (_data) => {
 
 const saveMetaDataSingleFile = (_editionCount) => {
   fs.writeFileSync(
-    `${buildDir}/json/NameYourNFT #${_editionCount}.json`, // Change name of NFT here as well so they all match
+    `${buildDir}/json/${_editionCount}.json`, // Change name of NFT here as well so they all match
     JSON.stringify(
       metadataList.find((meta) => meta.edition == _editionCount),
       null,
@@ -221,6 +229,7 @@ const startCreating = async () => {
           renderObjectArray.forEach((renderObject) => {
             drawElement(renderObject);
           });
+          signImage(`#${editionCount}`);
           saveImage(editionCount);
           addMetadata(newDna, editionCount);
           saveMetaDataSingleFile(editionCount);
