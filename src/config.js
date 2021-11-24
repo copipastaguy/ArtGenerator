@@ -1,11 +1,12 @@
 const { MODE } = require("./blendMode.js");
 const description =
   "Corgis made from love and generative art. No 2 corgis are the same ever! Created by Alfred";
-const baseUri = "https://gateway.pinata.cloud/ipfs/Qmbc4X6BYsxcm96MS5fbYMBs9Rvp8jvv4NwXFBx6Zz3uHp";
+const baseUri =
+  "https://gateway.pinata.cloud/ipfs/Qmbc4X6BYsxcm96MS5fbYMBs9Rvp8jvv4NwXFBx6Zz3uHp";
 
 const layerConfigurations = [
   {
-    growEditionSizeTo: 500, // Example to show you the inifite amount of possibilities
+    growEditionSizeTo: 501, // Example to show you the inifite amount of possibilities
     layersOrder: [
       { name: "background" },
       { name: "base" },
@@ -43,7 +44,7 @@ const layerConfigurations = [
   //   ],
   // },
 ]; // Now you can go and rename the pngs to which ever number you want them to be...
-            // ... to make the order more mixed. Remember even tho it's not RNG now, it is to the buyer!
+// ... to make the order more mixed. Remember even tho it's not RNG now, it is to the buyer!
 const format = {
   width: 1000, // change this to the dimension your NFT was created with in PSD
   height: 1000,

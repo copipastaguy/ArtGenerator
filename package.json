@@ -1,7 +1,7 @@
 {
-  "name": "hashlips_art_engine",
+  "name": "CorgiGenerator",
   "version": "1.0.0",
-  "description": "HashLips Art Engine is a tool used to create multiple different instances of artworks based on provided layers.",
+  "description": "CorgiGenerator is used to generate PixelatedCorgi",
   "main": "index.js",
   "bin": "index.js",
   "pkg": {
@@ -18,11 +18,13 @@
     "build": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Daniel Eugene Botha (HashLips)",
+  "author": "Alfred",
   "license": "MIT",
   "dependencies": {
+    "@mapbox/node-pre-gyp": "1.0.7",
     "all": "^0.0.0",
     "canvas": "^2.8.0",
+    "node-libpng": "^0.2.20",
     "sha1": "^1.1.1"
   }
 }

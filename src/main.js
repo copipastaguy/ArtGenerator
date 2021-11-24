@@ -1,9 +1,10 @@
-const fs = require("fs"); // We Love HASHLIPS!!!
-const path = require("path");
+const basePath = process.cwd();
+const fs = require("fs");
 const sha1 = require("sha1");
-const { createCanvas, loadImage } = require("canvas");
-const isLocal = typeof process.pkg === "undefined";
-const basePath = isLocal ? process.cwd() : path.dirname(process.execPath);
+const {
+  createCanvas,
+  loadImage,
+} = require(`${basePath}/node_modules/canvas/build/Release/canvas.node`);
 const buildDir = `${basePath}/build`;
 const layersDir = `${basePath}/layers`;
 const {
@@ -14,7 +15,7 @@ const {
   uniqueDnaTorrance,
   layerConfigurations,
   rarityDelimiter,
-} = require(path.join(basePath, "/src/config.js"));
+} = require(`${basePath}/src/config.js`);
 const console = require("console");
 const canvas = createCanvas(format.width, format.height);
 const ctx = canvas.getContext("2d");
@@ -91,7 +92,7 @@ const layersSetup = (layersOrder) => {
 const saveImage = (_editionCount) => {
   fs.writeFileSync(
     `${buildDir}/images/${_editionCount}.png`,
-    canvas.toBuffer("image/png") 
+    canvas.toBuffer("image/png")
   );
 };
 
@@ -124,6 +125,7 @@ const addMetadata = (_dna, _edition) => {
 
 const addAttributes = (_element) => {
   let selectedElement = _element.layer.selectedElement;
+  attributesList.splice(1, 1);
   attributesList.push({
     trait_type: _element.layer.name,
     value: selectedElement.name,
