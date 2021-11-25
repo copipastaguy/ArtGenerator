@@ -6,7 +6,7 @@ const baseUri =
 
 const layerConfigurations = [
   {
-    growEditionSizeTo: 501, // Example to show you the inifite amount of possibilities
+    growEditionSizeTo: 2, // Example to show you the inifite amount of possibilities
     layersOrder: [
       { name: "background" },
       { name: "base" },
