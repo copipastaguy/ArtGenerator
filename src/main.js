@@ -4,7 +4,7 @@ const sha1 = require("sha1");
 const {
   createCanvas,
   loadImage,
-} = require(`${basePath}/node_modules/canvas/build/Release/canvas.node`);
+} = require("canvas");
 const buildDir = `${basePath}/build`;
 const layersDir = `${basePath}/layers`;
 const {
