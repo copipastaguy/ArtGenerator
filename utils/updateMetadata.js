@@ -13,6 +13,8 @@ let data = JSON.parse(rawdata);
 
 data.forEach((item) => {
   item.image = `${baseUri}/${item.edition}.png`;
+  // Remove base attribute
+  item.attributes.splice(1, 1);
   fs.writeFileSync(
     `${basePath}/build/json/${item.edition}.json`,
     JSON.stringify(item, null, 2)
@@ -25,3 +27,4 @@ fs.writeFileSync(
 );
 
 console.log(`Updated baseUri for images to ===> ${baseUri}`);
+console.log("Remove base attribute from metadata.json");

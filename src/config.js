@@ -1,6 +1,7 @@
 const { MODE } = require("./blendMode.js");
 const description =
   "Corgis made from love and generative art. No 2 corgis are the same ever! Created by Alfred";
+// image URI
 const baseUri =
   "https://gateway.pinata.cloud/ipfs/Qmbc4X6BYsxcm96MS5fbYMBs9Rvp8jvv4NwXFBx6Zz3uHp";
 
